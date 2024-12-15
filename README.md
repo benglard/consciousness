@@ -48,7 +48,7 @@ The multi-agent game can be seen a simple in-context RLHF. The training scheme a
 
 There is a DPO analogue here too. DPO fintunes a model based on a positive/negative sample pair. If the positive example is the models own output, and the negative example is the output of another model, DPO will encourage a model to produce a unique output. Sum of logprobs of a sentence becomes a baby form of self-identification, without the need for a classifier head. 
 
-### Stability and Usefulness
+#### Stability and Usefulness
 
 This training scheme creates a loop where predictions drive reward, reward drives behavior, and behavior drives predictions. This, by default, is a non-stationary loop. Perhaps this explains the observed notion of consciousness as a near-present and unstable phenomenon. When we can no longer successfully model ourselves and our surroundings in short time, we lose consciousness.
 
