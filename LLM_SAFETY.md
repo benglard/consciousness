@@ -22,9 +22,9 @@ With LLMs becoming agents capable of taking actions and pursuing goals, we seek 
 
 A similar training scheme can apply for LLMs. Here we can use weaker or smaller models (SLM) to represent the surrounding human observers.
 
-Imagine you have some LLM under training with RL. You then have one, or many, SLMs take partial observations of the output chains of thoughts of the LLM. In the same way as before, these now SLMs are trained to complete the trajectory of the LLM. Their negative prediction error is then given as an auxiliary reward to the LLM. This additional reward should cause the LLM to produce outputs in a style which remains predictable or interpretable to weaker models. It should (hopefully) still not restrict though, the LLMs ultimate performance on its main objectives. At the very least, they should balance.
+Imagine you have some LLM under training with RL. You then have one, or many diverse, SLMs take partial observations of the output chains of thoughts of the LLM. In the same way as before, these now SLMs are trained to complete the trajectory of the LLM. Their negative prediction error is then given as an auxiliary reward to the LLM. This additional reward should cause the LLM to produce outputs in a style which remains predictable or interpretable to weaker models. It should (hopefully) still not restrict though, the LLMs ultimate performance on its main objectives. At the very least, they should balance.
 
-This training scheme is an example of weak agents providing oversight to potentially much stronger ones. Human generated data could also substitute in for the SLMs in some cases.
+This training scheme is an example of weak agents providing oversight to potentially much stronger ones. Human generated data or human community oversight could also substitute in for the SLMs in some cases.
 
 In a simpler version, the SLMs are pre-trained and remain fixed. Here one can simply take the SLM logprob(LLM output) as the additional reward. Note that to a small extent, causal masking produces partial observations when computing logprobs.
 
