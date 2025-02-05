@@ -1,0 +1,23 @@
+# Transformer Ideas
+
+Some small ideas for transformer architectures
+
+#### No MLP/Residuals
+
+One benefit of the token-wise MLP blocks and residual connections in a transformer is to maintain some independence and diversity of token representations. Otherwise a network made only of attention blocks can mix and average tokens together through layers and degrade performance. This is like applying a gaussian blur to an image over and over.
+
+Could it be possible to remove the residual connections and the MLP blocks and retain good performance?
+
+Try this:
+
+The attention heads act on the values vectors which are simply a projection of the tokens incoming to a layer. They are typically also a compressed version, by a factor of 1/num heads. A head which was the identity matrix would simply pass on these vectors without mixing amongst tokens. So always add an identity head to your other computed dot-product-softmax heads.
+
+Add a small linear layer that will compute a weight for each head in a data-dependent manner. Initialize this layer so that when the model begins training, all weight is given to the identity head. In this case, the model starts off like an MLP only network, and then can train these weights to be optimal for the given data. Multiply in these weights before mixing amongst the heads.
+
+With respect to the new identity head, this will create a data-dependent weighted bottlenecked residual connection. With respect to the other heads, it is just another weight.
+
+Move more weights into the head mixing linear layer that occurs after applying the attention heads. The number of new weights should equal the missing weights from the MLP blocks for a good test. Make this layer non-linear now.
+
+#### One MoE V
+
+Form a universal transformer (one layer looped). Form the queries/keys network in usual fashion, form the values network as a mixture of experts. This implies that each time the layer iterates, different experts will be activated to produce the output. And like above, no separate MLP block is needed. Scale weights horizontally.
