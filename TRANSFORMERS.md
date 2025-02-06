@@ -10,9 +10,9 @@ Could it be possible to remove the residual connections and the MLP blocks and r
 
 Try this:
 
-The attention heads act on the values vectors which are simply a projection of the tokens incoming to a layer. They are typically also a compressed version, by a factor of 1/num heads. A head which was the identity matrix would simply pass on these vectors without mixing amongst tokens. So always add an identity head to your other computed dot-product-softmax heads.
+The attention heads act on the values vectors which are simply a projection of the tokens incoming to a layer. The vectors are split between heads so that each head typically is multiplied with a compressed version, by a factor of 1/num heads. A head which was the identity matrix would simply pass on these vectors without mixing amongst tokens. So always add an identity head to your other computed dot-product-softmax heads.
 
-Add a small linear layer that will compute a weight for each head in a data-dependent manner. Initialize this layer so that when the model begins training, all weight is given to the identity head. In this case, the model starts off like an MLP only network, and then can train these weights to be optimal for the given data. Multiply in these weights before mixing amongst the heads.
+Add a small linear layer that will compute a scalar weight for each head in a data-dependent manner. Initialize this layer so that when the model begins training, all weight is given to the identity head. In this case, the model starts off like an MLP only network, and then can train these weights to be optimal for the given data. Multiply in these weights before mixing amongst the heads.
 
 With respect to the new identity head, this will create a data-dependent weighted bottlenecked residual connection. With respect to the other heads, it is just another weight.
 
