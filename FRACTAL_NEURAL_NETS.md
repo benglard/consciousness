@@ -102,7 +102,7 @@ array([['ae', 'af', 'be', 'bf'],
 
 ### References
 
-[1] For a general overview of kronecker graphs: [https://cs.stanford.edu/people/jure/pubs/kronecker-jmlr10.pdf](https://cs.stanford.edu/people/jure/pubs/kronecker-jmlr10.pdf)
-[2] Implications for cognition: [https://arxiv.org/abs/1402.7038](https://arxiv.org/abs/1402.7038)
-[3] [DenseFormer](https://arxiv.org/abs/2402.02622)
-[4] [The Unreasonable Ineffectiveness of the Deeper Layers](https://arxiv.org/abs/2403.17887v1)
+- For a general overview of kronecker graphs: [https://cs.stanford.edu/people/jure/pubs/kronecker-jmlr10.pdf](https://cs.stanford.edu/people/jure/pubs/kronecker-jmlr10.pdf)
+- Implications for cognition: [https://arxiv.org/abs/1402.7038](https://arxiv.org/abs/1402.7038)
+- [DenseFormer](https://arxiv.org/abs/2402.02622)
+- [The Unreasonable Ineffectiveness of the Deeper Layers](https://arxiv.org/abs/2403.17887v1)
