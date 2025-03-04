@@ -21,3 +21,5 @@ Move more weights into the head mixing linear layer that occurs after applying t
 #### One MoE V
 
 Form a universal transformer (one layer looped). Form the queries/keys network in usual fashion, form the values network as a mixture of experts. This implies that each time the layer iterates, different experts will be activated to produce the output. And like above, no separate MLP block is needed. Scale weights horizontally.
+
+I like this architecture because it is essentially a feedback mechanism between one large memory system and an attentional sensing system.

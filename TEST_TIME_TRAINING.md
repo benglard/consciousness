@@ -4,8 +4,8 @@ You could potentially handle test time distribution shift if you could retrain y
 
 If the additional head was control instead of perception it is basically adaptive mpc, except your "model" is an entire neural net.
 
-Perhaps this is how the brain works 🤷‍♂️😃? It certainly alings with the idea of the brain as a prediction machine. And the belief that we do much of our training in-context with short-term memory, and then consolidate these learnings into long-term memory during sleep.
+Perhaps this is how the brain works 🤷‍♂️😃? It certainly alings with the idea of the brain as a prediction machine and perception as controlled hallucination. And the belief that we do much of our training in-context with short-term memory, and then consolidate these learnings into long-term memory during sleep.
 
 #### Extensions
 
-The fast weights optimized at inference time do not have to be every weight of the base network, it could be selected layers or even new LoRA type parameters.
+The fast weights optimized at inference time do not have to be every weight of the base network, it could be selected layers, new LoRA type parameters, or even just a latent variable within the network.
