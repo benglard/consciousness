@@ -23,3 +23,7 @@ Move more weights into the head mixing linear layer that occurs after applying t
 Form a universal transformer (one layer looped). Form the queries/keys network in usual fashion, form the values network as a mixture of experts. This implies that each time the layer iterates, different experts will be activated to produce the output. And like above, no separate MLP block is needed - token diversity is assisted via aggregation of multiple experts. Scale weights horizontally.
 
 I like this architecture because it is essentially a feedback mechanism between one large memory system and an attentional sensing system.
+
+#### Virtual Heads
+
+Multi-head attention produces an image of shape `TxTxH`. You can process this image with a conv2d to create new virtual heads, which represent learned spatial and feature-wise aggregations of the qk inner product heads. If your attention graph must remain causal, you can use a causal conv1d across each row. This can be interpreted as a local graph rewiring on top of the computed attention graph.
